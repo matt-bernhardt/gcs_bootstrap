@@ -182,12 +182,12 @@
 {# Challenges #}
 {% if page.challenges %}
 {% block challenges %}
-  <div class="panel-challenges">
-    <div class="{{ container }}">
+  <div id="challenges" class="panel-challenges" style="background-image: none; position: relative; background-attachment: scroll; background-size: auto;">
+    <div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; transition: transform linear -1ms, -webkit-transform linear -1ms; visibility: hidden; z-index: -100;"><div style="background-position: 50% 50%; background-repeat: no-repeat; background-image: url(&quot;/sites/all/themes/gcs_bootstrap/images/mc1-1-2000x2588.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 2114px; height: 1082px; overflow: hidden; pointer-events: none; transition: transform linear -1ms, -webkit-transform linear -1ms; background-size: 2114px 1310.78px; visibility: visible; transform: translate3d(0px, 142.93px, 0px);"></div></div>
+    <div class="gcs-overlay"></div>
+    <div class="gcs-content {{ container }}">
       <div class="row">
-        <div class="col-sm-12">
           {{ page.challenges }}
-        </div>
       </div>
     </div>
   </div>

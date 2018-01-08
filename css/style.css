@@ -6369,6 +6369,21 @@ footer {
 #block-gcs-bootstrap-footer {
   background-color: yellow; }
 
+.gcs-overlay {
+  background: #222;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2; }
+
+.gcs-content {
+  position: relative;
+  z-index: 3; }
+
 .panel-about {
   background-color: #ffd407; }
 
@@ -6378,8 +6393,10 @@ footer {
 .panel-attending {
   background-color: #ecffff; }
 
-.panel-challenges {
-  background-color: #ffffec; }
+.panel-challenges .block-title {
+  text-align: center;
+  padding-top: 93px;
+  padding-bottom: 41px; }
 
 .panel-committee {
   background-color: #ececff; }
