@@ -4,7 +4,7 @@
 # Sass Starterkit
 
 Below are instructions on how to create a Bootstrap sub-theme using a Sass
-preprocessor.
+preprocessor..
 
 - [Prerequisites](#prerequisites)
 - [Additional Setup](#setup)

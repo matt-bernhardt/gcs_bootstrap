@@ -12,3 +12,9 @@
 
 // Set the proper directory for the Bootstrap Glyphicon font.
 $icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
+
+// This is the same as screen-md-min (default value is screen-sm-min)
+// $grid-float-breakpoint:     992px;
+
+// This is the same as screen-lg-min (default value is screen-sm-min)
+$grid-float-breakpoint:     1200px;

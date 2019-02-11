@@ -51,6 +51,7 @@
  * @see html.html.twig
  */
 #}
+{{ attach_library('gcs_bootstrap/toggles') }}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 {# Navbar #}
 {% if page.navigation or page.navigation_collapsible %}
@@ -94,42 +95,58 @@
 
 {# Main #}
 {% block main %}
-  <div role="main" class="main-container {{ container }} js-quickedit-main-content">
-    <div class="row">
+  <div id="home" role="main" class="main-container">
 
-      {# Header #}
-      {% if page.header %}
-        {% block header %}
-          <div class="col-sm-12" role="heading">
-            {{ page.header }}
+    {# Connect #}
+    {% if page.connect %}
+    {% block connect %}
+      <div class="panel-connect">
+        <div class="{{ container }}">
+          <div class="row">
+            {{ page.connect }}
           </div>
-        {% endblock %}
-      {% endif %}
+        </div>
+      </div>
+    {% endblock %}
+    {% endif %}
 
-      {# Content #}
-      <section{{ content_attributes.addClass('col-sm-12') }}>
+    <div class="{{ container }} js-quickedit-main-content">
+      <div class="row">
 
-        {# Highlighted #}
-        {% if page.highlighted %}
-          {% block highlighted %}
-            <div class="highlighted">{{ page.highlighted }}</div>
-          {% endblock %}
-        {% endif %}
-
-        {# Help #}
-        {% if page.help %}
-          {% block help %}
-            {{ page.help }}
+        {# Header #}
+        {% if page.header %}
+          {% block header %}
+            <div class="col-sm-12" role="heading">
+              {{ page.header }}
+            </div>
           {% endblock %}
         {% endif %}
 
         {# Content #}
-        {% block content %}
-          <a id="main-content"></a>
-          {{ page.content }}
-        {% endblock %}
-      </section>
+        <section{{ content_attributes.addClass('col-sm-12') }}>
 
+          {# Highlighted #}
+          {% if page.highlighted %}
+            {% block highlighted %}
+              <div class="highlighted">{{ page.highlighted }}</div>
+            {% endblock %}
+          {% endif %}
+
+          {# Help #}
+          {% if page.help %}
+            {% block help %}
+              {{ page.help }}
+            {% endblock %}
+          {% endif %}
+
+          {# Content #}
+          {% block content %}
+            <a id="main-content"></a>
+            {{ page.content }}
+          {% endblock %}
+        </section>
+
+      </div>
     </div>
   </div>
 {% endblock %}
@@ -137,12 +154,10 @@
 {# About #}
 {% if page.about %}
 {% block about %}
-  <div class="panel-about">
+  <div id="about" class="gcs-panel panel-about panel-dark">
     <div class="{{ container }}">
       <div class="row">
-        <div class="col-sm-12">
-          {{ page.about }}
-        </div>
+        {{ page.about }}
       </div>
     </div>
   </div>
@@ -152,12 +167,10 @@
 {# Keynote #}
 {% if page.keynote %}
 {% block keynote %}
-  <div class="panel-keynote">
+  <div id="keynotes" class="gcs-panel panel-keynote panel-light">
     <div class="{{ container }}">
       <div class="row">
-        <div class="col-sm-12">
-          {{ page.keynote }}
-        </div>
+        {{ page.keynote }}
       </div>
     </div>
   </div>
@@ -167,12 +180,10 @@
 {# Attending #}
 {% if page.attending %}
 {% block attending %}
-  <div class="panel-attending">
+  <div id="attending" class="gcs-panel panel-attending panel-dark">
     <div class="{{ container }}">
       <div class="row">
-        <div class="col-sm-12">
-          {{ page.attending }}
-        </div>
+        {{ page.attending }}
       </div>
     </div>
   </div>
@@ -182,12 +193,23 @@
 {# Challenges #}
 {% if page.challenges %}
 {% block challenges %}
-  <div id="challenges" class="panel-challenges" style="background-image: none; position: relative; background-attachment: scroll; background-size: auto;">
-    <div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; transition: transform linear -1ms, -webkit-transform linear -1ms; visibility: hidden; z-index: -100;"><div style="background-position: 50% 50%; background-repeat: no-repeat; background-image: url(&quot;/sites/all/themes/gcs_bootstrap/images/mc1-1-2000x2588.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 2114px; height: 1082px; overflow: hidden; pointer-events: none; transition: transform linear -1ms, -webkit-transform linear -1ms; background-size: 2114px 1310.78px; visibility: visible; transform: translate3d(0px, 142.93px, 0px);"></div></div>
-    <div class="gcs-overlay"></div>
-    <div class="gcs-content {{ container }}">
+  <div id="challenges" class="gcs-panel panel-challenges panel-bg-fixed">
+    <div class="{{ container }}">
       <div class="row">
           {{ page.challenges }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% endif %}
+
+{# Readings #}
+{% if page.readings %}
+{% block readings %}
+  <div id="readings" class="gcs-panel panel-readings panel-bg-fixed">
+    <div class="{{ container }}">
+      <div class="row">
+          {{ page.readings }}
       </div>
     </div>
   </div>
@@ -197,12 +219,10 @@
 {# Committee #}
 {% if page.committee %}
 {% block committee %}
-  <div class="panel-committee">
+  <div id="committee" class="gcs-panel panel-committee panel-light">
     <div class="{{ container }}">
       <div class="row">
-        <div class="col-sm-12">
-          {{ page.committee }}
-        </div>
+        {{ page.committee }}
       </div>
     </div>
   </div>
@@ -211,13 +231,12 @@
 
 {# Updates #}
 {% if page.updates %}
+{{ attach_library('gcs_bootstrap/updates') }}
 {% block updates %}
-  <div class="panel-updates">
-    <div class="{{ container }}">
+  <div id="updates" class="gcs-panel panel-updates panel-bg-fixed">
+    <div class="gcs-content {{ container }}">
       <div class="row">
-        <div class="col-sm-12">
-          {{ page.updates }}
-        </div>
+        {{ page.updates }}
       </div>
     </div>
   </div>
@@ -227,22 +246,57 @@
 {# Keynote #}
 {% if page.livestream %}
 {% block livestream %}
-  <div class="panel-livestream">
+  <div id="livestream" class="gcs-panel panel-livestream panel-light">
     <div class="{{ container }}">
       <div class="row">
-        <div class="col-sm-12">
-          {{ page.livestream }}
-        </div>
+        {{ page.livestream }}
       </div>
     </div>
   </div>
 {% endblock %}
 {% endif %}
 
-{% if page.footer %}
-  {% block footer %}
-    <footer class="footer {{ container }}" role="contentinfo">
-      {{ page.footer }}
-    </footer>
-  {% endblock %}
+{# Subscribe #}
+{% if page.subscribe %}
+{% block subscribe %}
+  <div id="subscribe" class="gcs-panel panel-subscribe panel-dark">
+    <div class="{{ container }}">
+      <div class="row">
+        {{ page.subscribe }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
 {% endif %}
+
+{# Footer #}
+<footer class="footer" role="contentinfo">
+
+  {# Footer Foundation #}
+  {% if page.foundation %}
+    {% block foundation %}
+    <div class="footer-foundation panel-light">
+      <div class="{{ container }}">
+        <div class="row">
+          {{ page.foundation }}
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  {% endif %}
+
+  {# Footer Colophon #}
+  {% if page.colophon %}
+    {% block colophon %}
+    <div class="footer-colophon panel-dark">
+      <div class="{{ container }}">
+        <div class="row">
+          {{ page.colophon }}
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  {% endif %}
+
+  </div>
+</footer>
